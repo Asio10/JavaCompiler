@@ -1,0 +1,21 @@
+TABLA #1 :
+ * Lexema : 'suma'
+   Atributos :
+   + tipo : 'None'
+   + despl : 0
+---------------------------------
+ * Lexema : 'a'
+   Atributos :
+   + tipo : 'None'
+   + despl : 0
+---------------------------------
+ * Lexema : 'b'
+   Atributos :
+   + tipo : 'None'
+   + despl : 0
+---------------------------------
+ * Lexema : 'total'
+   Atributos :
+   + tipo : 'None'
+   + despl : 0
+---------------------------------

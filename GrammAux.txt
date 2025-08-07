@@ -1,0 +1,57 @@
+Terminales = { int boolean string , if return id input let while print function entera cad ( ) { } == = %= ; + ! true false eof }
+
+NoTerminales = { S B T F G H N M D K I L A X R P J Y V Z }
+
+Axioma = S
+
+Producciones = {
+S -> B S {2.1}
+S -> F S {1.1}
+S -> eof
+B-> K {6.1}
+B -> if ( R ) {3.1} D {3.2} 
+B -> {4.1} let id T {4.2} ; {4.3}
+B ->  while ( R ) {5.1} { M } {5.2}
+T -> int {7.1}
+T -> string {8.1}
+T-> boolean {9.1}
+F -> {10.1} function id {10.2} G ( H ) {10.3} { M {10.4} } {10.5}
+G -> T {11.1}
+G -> labmda
+H -> T id {12.1} N {12.2}
+H -> lambda
+N -> lambda
+N -> , T id {13.1} N {13.2}
+M -> B {14.1} M {14.2}
+M -> lambda
+D -> { M } {15.1}
+D -> K {16.1}
+K -> return X ; {17.1}
+K -> print ( R ) ; {18.1}
+K -> input id ; {19.1}
+K -> id {20.1} I {20.2}
+I -> {21.1} ( L ) ;  {21.2}
+I -> = R ; {23.1} 
+I -> %= R ; {22.1} 
+L -> {24.1} R {24.2} A {24.3}
+L -> lambda
+A -> , R {25.1} A {25.2}
+A -> lambda
+X -> R {26.1}
+X -> lambda
+R -> J P {27.1}
+P -> == J P {28.1}
+P -> lambda
+J -> V Y {29.1} 
+Y -> + V {30.1} Y {30.2}
+Y -> lambda
+V -> id {31.1} Z {31.2}
+V -> ( R ) {32.2}
+V -> entera
+V -> true
+V -> false
+V -> ! id {36.1} Z {36.2}
+V -> cad
+Z -> ( {38.1} L ) {38.2}
+Z -> lambda
+}

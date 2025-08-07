@@ -1,0 +1,12 @@
+*.cpython-*.pyc
+*.pyc
+__pycache__/
+fuente.txt
+parse.txt
+simbolos.txt
+tokens.txt
+
+Grupo_16/fuente.txt
+Grupo_16/parse.txt
+Grupo_16/simbolos.txt
+Grupo_16/tokens.txt

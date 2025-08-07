@@ -1,0 +1,11 @@
+TABLA #1 :
+ * Lexema : 'num'
+   Atributos :
+   + tipo : 'None'
+   + despl : 0
+---------------------------------
+ * Lexema : 'prueba'
+   Atributos :
+   + tipo : 'None'
+   + despl : 0
+---------------------------------

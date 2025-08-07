@@ -1,0 +1,85 @@
+TABLA #0 :
+ * Lexema : 'entero'
+   Atributos :
+   + tipo : 'integer'
+   + despl : 0
+---------------------------------
+ * Lexema : 'cadena'
+   Atributos :
+   + tipo : 'string'
+   + despl : 1
+---------------------------------
+ * Lexema : 'logico'
+   Atributos :
+   + tipo : 'logic'
+   + despl : 65
+---------------------------------
+ * Lexema : 'pp_'
+   Atributos :
+   + tipo : 'function'
+     + numParam : '0'
+       + TipoRetorno : 'void'
+     + EtiqFuncion : 'pp_'
+---------------------------------
+ * Lexema : 'abcdefghij________'
+   Atributos :
+   + tipo : 'integer'
+   + despl : 66
+---------------------------------
+ * Lexema : 'FuncionNumero'
+   Atributos :
+   + tipo : 'function'
+     + numParam : '0'
+       + TipoRetorno : 'void'
+     + EtiqFuncion : 'FuncionNumero'
+---------------------------------
+ * Lexema : 'FuncionRetorno'
+   Atributos :
+   + tipo : 'function'
+     + numParam : '3'
+       + TipoParam1 : 'string'
+       + TipoParam2 : 'integer'
+       + TipoParam3 : 'logic'
+       + TipoRetorno : 'integer'
+     + EtiqFuncion : 'FuncionRetorno'
+---------------------------------
+ * Lexema : 'boooooo'
+   Atributos :
+   + tipo : 'logic'
+   + despl : 67
+---------------------------------
+ * Lexema : 's64'
+   Atributos :
+   + tipo : 'string'
+   + despl : 68
+---------------------------------
+ * Lexema : 'aaaaa'
+   Atributos :
+   + tipo : 'integer'
+   + despl : 132
+---------------------------------
+ * Lexema : 'fbbb'
+   Atributos :
+   + tipo : 'function'
+     + numParam : '0'
+       + TipoRetorno : 'logic'
+     + EtiqFuncion : 'fbbb'
+---------------------------------
+ * Lexema : 'FuncionSentencia'
+   Atributos :
+   + tipo : 'function'
+     + numParam : '2'
+       + TipoParam1 : 'integer'
+       + TipoParam2 : 'logic'
+       + TipoRetorno : 'integer'
+     + EtiqFuncion : 'FuncionSentencia'
+---------------------------------
+ * Lexema : 'Funcion'
+   Atributos :
+   + tipo : 'function'
+     + numParam : '2'
+       + TipoParam1 : 'integer'
+       + TipoParam2 : 'logic'
+       + TipoRetorno : 'void'
+     + EtiqFuncion : 'Funcion'
+---------------------------------

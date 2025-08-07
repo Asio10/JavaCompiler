@@ -1,0 +1,21 @@
+TABLA #1 :
+ * Lexema : 'funcionCompleja'
+   Atributos :
+   + tipo : 'None'
+   + despl : 0
+---------------------------------
+ * Lexema : 'param_1'
+   Atributos :
+   + tipo : 'None'
+   + despl : 0
+---------------------------------
+ * Lexema : 'param_2'
+   Atributos :
+   + tipo : 'None'
+   + despl : 0
+---------------------------------
+ * Lexema : 'total'
+   Atributos :
+   + tipo : 'None'
+   + despl : 0
+---------------------------------

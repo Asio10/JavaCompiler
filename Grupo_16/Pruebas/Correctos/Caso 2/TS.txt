@@ -1,0 +1,50 @@
+TABLA #1 :
+ * Lexema : 'x'
+   Atributos :
+   + tipo : 'int'
+   + despl : 1
+---------------------------------
+ * Lexema : 'y'
+   Atributos :
+   + tipo : 'int'
+   + despl : 0
+---------------------------------
+TABLA #2 :
+ * Lexema : 'b'
+   Atributos :
+   + tipo : 'int'
+   + despl : 0
+---------------------------------
+TABLA #0 :
+ * Lexema : 'x'
+   Atributos :
+   + tipo : 'int'
+   + despl : 0
+---------------------------------
+ * Lexema : 'y'
+   Atributos :
+   + tipo : 'int'
+   + despl : 1
+---------------------------------
+ * Lexema : 'b'
+   Atributos :
+   + tipo : 'int'
+   + despl : 2
+---------------------------------
+ * Lexema : 'suma'
+   Atributos :
+   + tipo : 'function'
+     + numParam : '2'
+       + TipoParam1 : 'int'
+       + TipoParam2 : 'int'
+       + TipoRetorno : 'int'
+     + EtiqFuncion : 'suma'
+---------------------------------
+ * Lexema : 'funct'
+   Atributos :
+   + tipo : 'function'
+     + numParam : '1'
+       + TipoParam1 : 'int'
+       + TipoRetorno : 'void'
+     + EtiqFuncion : 'funct'
+---------------------------------

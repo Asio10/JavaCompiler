@@ -1,0 +1,47 @@
+
+var string	cadena;
+input 
+cadena;
+var boolean logico1	;
+var boolean logico2 	;
+var int int2			;
+
+
+
+/* Ejemplo #1*/
+
+
+output
+
+(
+
+"http://dlsiis.fi.upm.es/procesadores/" /**/
+
+)
+
+;
+int1 = 873;
+
+int2 = 378;
+if ( logico2) cadena = " hello!";
+
+function string ff(string sss)
+{
+	global = 33;
+	logico1 =  logico2;
+	return sss;
+	if (logico1) sss = ff (cadena);
+}
+		
+function string funciOn  (string logico2)
+{	var  int let;
+
+  do{
+	logico1 = int1 < int2;output(0);logico2="";
+  }while(logico1);
+
+  return logico2;
+}
+cadena = (ff(funciOn(cadena)));
+output cadena;
+

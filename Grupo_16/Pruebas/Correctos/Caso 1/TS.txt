@@ -1,0 +1,16 @@
+TABLA #0 :
+ * Lexema : 'ruta'
+   Atributos :
+   + tipo : 'int'
+   + despl : 0
+---------------------------------
+ * Lexema : 'res'
+   Atributos :
+   + tipo : 'int'
+   + despl : 1
+---------------------------------
+ * Lexema : 'mensaje'
+   Atributos :
+   + tipo : 'string'
+   + despl : 2
+---------------------------------

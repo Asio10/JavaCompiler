@@ -1,0 +1,18 @@
+var    int a   ;
+var    int b       ;
+var    int number  ;
+output  "Introduce el primer operando" ;
+input a;
+output "Introduce el segundo operando";input  
+	b;
+function int
+operacion
+(int num1_, int num2_)
+{
+	var int number ;
+	number = 88  +  num1_+num2_;
+	return number;
+}
+/*number = 67890;*/
+number = 1;
+output operacion(b,a);

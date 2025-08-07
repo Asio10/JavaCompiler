@@ -1,0 +1,73 @@
+Terminales = { boolean do function if input int output return string var void while id ent cad , -- = ; ( ) { } + ! < eof }
+
+NoTerminales = { P A B C E F S T H I L M Q K U U1 V X Z } 	 
+
+Axioma = P 
+
+Producciones = {
+P -> B P			//// Bloques: sentencias
+P -> F P			//// Para funciones, no va punto y coma
+P -> eof
+
+
+T -> int			//// Tipos terminales
+T -> boolean
+T -> string
+
+
+E -> U M			//// Expresiones: comparaciones, sumas y !
+M -> < U M			//// Comparación
+M -> lambda
+U -> V U1
+U1 -> + V U1		//// Suma
+U1 -> lambda
+
+V -> ( E )
+V -> ent
+V -> cad
+V -> id Z
+V -> ! E
+Z -> --
+Z -> ( L )			//// Funcion
+Z -> lambda
+
+
+B -> S			//// Bloques:
+B -> if ( E ) S
+B -> do { C } while ( E ) ; 
+B -> var T id ;
+
+C -> B C		//// Dentro del while y corchetes otros bloques
+C -> lambda
+
+
+S -> output E ;		//// Sentencias simples dentro de bloques
+S -> input id ;		//// se guarda en el id
+S -> return X ;
+S -> id I
+
+X -> E			//// Retorno de funciones
+X -> lambda			//// puede ser una funcion void
+
+I -> ( L ) ;		//// Para los id, funciones
+I -> = E ;
+
+
+L -> E Q			//// Listas para las llamadas a funciones
+L -> lambda
+Q -> , E Q
+Q -> lambda
+
+
+F -> function H id ( A ) { C }		//// Para declaracion de funciones
+	
+H -> T			//// Declaracion tipo funcion
+H -> void
+
+A -> T id K		//// Argumentos para funciones
+A -> void
+K -> , T id K
+K -> lambda
+
+I -> -- ;
+}

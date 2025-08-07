@@ -1,0 +1,98 @@
+Terminales = { boolean do function if input int output return string var void while id ent cad , -- = ; ( ) { } + ! < eof }
+
+NoTerminales = { P A B C E F S T H I L M Q K U U1 V X Z } 	 
+
+Axioma = P 
+
+
+
+Producciones = {
+P’ -> {TSG:= CreaTabla( ); TSActual := TSG, desplG:= 0} P {LiberaTabla(TSG)}
+P -> B P {if (B.tipoRet ≠ Ø) then error(“No se puede hacer un ‘return’ fuera de una función.”)}
+P -> F P			
+P -> eof
+
+
+T -> int {T.tipo := entero; T.tamaño := 1}
+T -> boolean {T.tipo := logico; T.tamaño := 1}
+T -> string {T.tipo := cadena; T.tamaño := 64}
+
+
+E -> U M	{E.tipo := if (M.tipo = Ø) then U.tipo else if (U.tipo = M.tipo = entero) then logico else tipo_error}
+M -> < U M	{M.tipo := if (U.tipo = M1.tipo = entero) then entero elif (M.tipo = Ø) then U.tipo else tipo_error}
+M -> lambda {M.tipo := Ø}
+U -> V U1   {U.tipo := if (U1.tipo = Ø) then V.tipo elif (V.tipo = U1.tipo = entero) then entero else tipo_error}
+U1 -> + V U1 {U1.tipo := if (U1.tipo = Ø) then V.tipo elif (V.tipo = U1.tipo = entero) then entero else tipo_error}		
+U1 -> lambda {U1.tipo := Ø}
+
+V -> ( E ) {V.tipo := E.tipo}
+V -> ent {V.tipo := entero}
+V -> cad {V.tipo := cadena}
+V -> id Z {V.tipo := if (Z.tipo = Ø) then BuscaTipoTS(id.pos) elif (BuscaTipoTS(id.pos) = Z.tipo → tipoRet) then tipoRet else tipo_error}
+            ///// if(TSA = TSG) then t = BuscaTipoTSG(id.pos) else t =BuscaTipoTSL(id.pos)
+
+V -> ! E {V.tipo := if (E.tipo = lógico) then lógico else tipo_error}
+Z -> -- {Z.tipo := Ø}
+Z -> ( L )	{Z.tipo :=  L.tipo}
+Z -> lambda {Z.tipo := Ø}
+
+
+B -> S	{B.tipoRet := S.tipoRet}
+B -> if ( E ) {if (E.tipo != lógico) then tipo_error} S {B.tipoRet := S.tipoRet;}
+B -> do { C } while ( E {if (E.tipo != lógico) then tipo_error} ) ; {B.tipoRet := Ø}
+B -> var T {zona_decl:= true} id ; {if (BuscaTipoTS(id.pos) ≠ null) then tipo_error; 
+        AñadeTipoTS(id.pos, T.tipo) 
+        if TSL
+            then AñadeDespl(id.pos,despG); despG := despG+T.tamaño}
+        else 
+            AñadeDespl(id.pos, despL); despL := despL+T.tamaño;
+        zona_decl:= false; B.tipoRet := Ø }
+
+C -> B C { C.tipoRet := if(C1.tipoRet = Ø) then B.tipoRet
+        else if (C1.tipoRet = B.tipoRet) then
+            B.tipoRet
+        else
+            error(“La función no puede devolver 2 tipos distintos”)}
+
+C -> lambda {C.tipoRet := Ø }
+
+S -> output E {if (E.tipo != cadena AND E.tipo != entero) then tipo_error; S.tipoRet := Ø} ;
+S -> input id ;	{if (BuscaTipoTS(id.pos) != cadena AND BuscaTipoTS(id.pos) != entero) then tipo_error; S.tipoRet := Ø}
+S -> return X  {S.tipoRet:= if X.tipo} ;
+S -> id I  {S.tipo:= if BuscaTipo(id.pos)= I.tipo->tipoRet then tipoRet 
+            elif  I.tipo == Ø then BuscaTipo(id.pos) 
+            elif BuscaTipo(id.pos) = I.tipo then I.tipo
+            else tipo_error
+        ; S.tipoRet := Ø}
+
+
+X -> E	{X.tipo := E.tipo}
+X -> lambda	{X.tipo := vacío}
+
+I -> ( L ) ; {I.tipo := L.tipo}
+I -> = E ; {I.tipo = E.tipo else}
+
+
+L -> E Q  {L.tipo := if (Q.tipo = Ø) then E.tipo else E.tipo x Q.tipo}
+L -> lambda {L.tipo := Ø}
+Q -> , E Q {Q.tipo := if (Q1.tipo = Ø) then E.tipo else E.tipo x Q1.tipo}
+Q -> lambda {Q.tipo := Ø}
+
+
+F -> function H {zona_decl:= true} id {TSL:= CreaTabla( ); desplL:=0} ( A {AñadeTipo(id.pos, A.tipo->H.tipo); 
+                AñadeEtiq(id.pos, nuevaetiq())}; zona_decl:= false ) { C }	{if (C.tipoRet != H.tipo) then tipo_error else LiberaTabla(TSL); TSActual := TSG}
+	
+H -> T	{H.tipo := T.tipo}
+H -> void {H.tipo := vacío}
+
+A -> T id K {AñadeTipo(id.pos, T.tipo);
+            AñadeDespl(id.pos, despL); despL := despL+T.tamaño;
+            A.tipo := if (K1.tipo = Ø) then T.tipo else T.tipo x K1.tipo}
+A -> void  {A.tipo := vacío}
+K -> , T id K {AñadeTipo(id.pos, T.tipo);
+            AñadeDespl(id.pos, despL); despL := despL+T.tamaño;
+            K.tipo := if (K1.tipo = Ø) then T.tipo else T.tipo x K1.tipo}
+K -> lambda  {K.tipo := Ø}
+
+I -> -- ; {I.tipo := Ø}
+}
